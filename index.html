@@ -1,0 +1,650 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Nunito:wght@300;400;500;600;700&display=swap');
+
+  .lp-root {
+    font-family: 'Nunito', sans-serif;
+    color: #2D312E;
+    background: #FDFBF7;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  /* ===== HERO ===== */
+  .lp-hero {
+    background: linear-gradient(135deg, #4A7C59 0%, #5B8E68 40%, #6BA378 100%);
+    padding: 48px 40px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .lp-hero::before {
+    content: '';
+    position: absolute;
+    top: -30px; right: -30px;
+    width: 180px; height: 180px;
+    background: rgba(255,209,102,0.15);
+    border-radius: 50%;
+  }
+  .lp-hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: -20px;
+    width: 140px; height: 140px;
+    background: rgba(243,232,214,0.12);
+    border-radius: 50%;
+  }
+  .lp-hero h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #FDFBF7;
+    margin: 0 0 10px;
+    position: relative;
+    letter-spacing: -0.3px;
+  }
+  .lp-hero .tagline {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(253,251,247,0.85);
+    margin: 0 0 20px;
+    position: relative;
+  }
+  .lp-hero .pills {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+  }
+  .lp-hero .pill {
+    background: rgba(253,251,247,0.15);
+    border: 1px solid rgba(253,251,247,0.25);
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    color: #FDFBF7;
+  }
+
+  /* ===== STATS BAR ===== */
+  .lp-stats {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    padding: 20px 40px;
+    background: #F3E8D6;
+    border-bottom: 1px solid rgba(74,124,89,0.15);
+  }
+  .lp-stats .stat {
+    text-align: center;
+    padding: 0 24px;
+    border-right: 1px solid rgba(74,124,89,0.2);
+  }
+  .lp-stats .stat:last-child { border-right: none; }
+  .lp-stats .stat-num {
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #4A7C59;
+  }
+  .lp-stats .stat-label {
+    font-family: 'Nunito', sans-serif;
+    font-size: 11px;
+    color: #2D312E;
+    margin-top: 2px;
+  }
+
+  /* ===== SECTION HEADER ===== */
+  .lp-sec-head {
+    padding: 32px 40px 16px;
+  }
+  .lp-sec-head h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #4A7C59;
+    margin: 0 0 6px;
+  }
+  .lp-sec-head p {
+    font-family: 'Nunito', sans-serif;
+    font-size: 13px;
+    color: #6B6F6D;
+    margin: 0;
+  }
+
+  /* ===== KC TRACKER ===== */
+  .lp-kc {
+    margin: 0 40px 28px;
+    background: #FDFBF7;
+    border: 1px solid rgba(74,124,89,0.2);
+    border-radius: 12px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .lp-kc .kc-icon {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    background: #FFD166;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px; font-weight: 700;
+    color: #2D312E;
+    flex-shrink: 0;
+  }
+  .lp-kc .kc-body { flex: 1; }
+  .lp-kc .kc-body h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px; font-weight: 600;
+    color: #4A7C59; margin: 0 0 8px;
+  }
+  .lp-kc .kc-bars { display: flex; gap: 20px; }
+  .lp-kc .kc-bar { flex: 1; }
+  .lp-kc .kc-bar .bar-info {
+    display: flex; justify-content: space-between;
+    font-family: 'Nunito', sans-serif; font-size: 11px;
+    color: #2D312E; margin-bottom: 4px;
+  }
+  .lp-kc .kc-bar .bar-info span { font-weight: 600; }
+  .lp-kc .kc-bar .bar-track {
+    height: 10px; border-radius: 5px;
+    background: rgba(74,124,89,0.1);
+    overflow: hidden;
+  }
+  .lp-kc .kc-bar .bar-fill {
+    height: 100%; border-radius: 5px;
+    background: #FFD166;
+    transition: width 0.4s ease;
+  }
+
+  /* ===== DAY CARDS ===== */
+  .lp-day {
+    margin: 0 40px 24px;
+    background: #FDFBF7;
+    border: 1px solid rgba(74,124,89,0.15);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .lp-day-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    background: rgba(74,124,89,0.08);
+    border-bottom: 1px solid rgba(74,124,89,0.15);
+  }
+  .lp-day-head .day-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px; font-weight: 600;
+    color: #4A7C59;
+  }
+  .lp-day-head .day-total {
+    font-family: 'Nunito', sans-serif;
+    font-size: 12px;
+    color: #8A7E9A;
+    font-style: italic;
+  }
+  .lp-day-head .day-total b {
+    font-style: normal; font-weight: 600;
+    color: #4A7C59; margin-right: 4px;
+  }
+
+  /* ===== MEAL CARDS (horizontal rows) ===== */
+  .lp-meals {
+    padding: 14px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .lp-meal {
+    display: flex;
+    align-items: stretch;
+    gap: 14px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    background: #FFF;
+    border: 1px solid rgba(74,124,89,0.1);
+    transition: border-color 0.2s;
+  }
+  .lp-meal:hover { border-color: rgba(74,124,89,0.3); }
+  .lp-meal.kc {
+    background: #FFD166;
+    border-color: rgba(74,124,89,0.2);
+  }
+
+  .lp-meal .meal-tag {
+    width: 80px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid rgba(74,124,89,0.12);
+    padding-right: 14px;
+  }
+  .lp-meal .meal-tag .slot-icon {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    background: rgba(74,124,89,0.1);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px; font-weight: 600;
+    color: #4A7C59;
+    margin-bottom: 4px;
+  }
+  .lp-meal.kc .meal-tag .slot-icon {
+    background: rgba(45,49,46,0.12);
+    color: #2D312E;
+  }
+  .lp-meal .meal-tag .slot-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 10px; font-weight: 500;
+    color: #4A7C59;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+  .lp-meal.kc .meal-tag .slot-name { color: #2D312E; }
+
+  .lp-meal .meal-body { flex: 1; min-width: 0; }
+  .lp-meal .meal-body .meal-name {
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px; font-weight: 600;
+    color: #2D312E;
+    margin-bottom: 4px;
+  }
+  .lp-meal .meal-body .nutri {
+    font-family: 'Nunito', sans-serif;
+    font-style: italic;
+    font-size: 11px;
+    color: #8A7E9A;
+    line-height: 1.5;
+  }
+  .lp-meal .meal-body .nutri span { margin-right: 8px; }
+  .lp-meal .meal-body .vits {
+    font-family: 'Nunito', sans-serif;
+    font-style: italic;
+    font-size: 10px;
+    color: #8A7E9A;
+    margin-top: 2px;
+    opacity: 0.8;
+  }
+
+  .lp-meal .kc-badge {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+  }
+  .lp-meal .kc-badge .badge-inner {
+    background: #4A7C59;
+    color: #FDFBF7;
+    font-family: 'Poppins', sans-serif;
+    font-size: 9px; font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 12px;
+    white-space: nowrap;
+  }
+
+  /* ===== GROCERY SECTION ===== */
+  .lp-grocery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 0 40px 28px;
+  }
+  .lp-grocery .gcol {
+    border-radius: 12px;
+    padding: 20px 24px;
+    border: 1px solid rgba(74,124,89,0.15);
+  }
+  .lp-grocery .gcol.pantry { background: #F3E8D6; }
+  .lp-grocery .gcol.buy { background: #FDFBF7; }
+  .lp-grocery .gcol h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px; font-weight: 600;
+    color: #4A7C59; margin: 0 0 12px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .lp-grocery .gcol .gicon {
+    width: 28px; height: 28px; border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 600;
+  }
+  .lp-grocery .pantry .gicon { background: rgba(74,124,89,0.15); color: #4A7C59; }
+  .lp-grocery .buy .gicon { background: rgba(138,126,154,0.15); color: #8A7E9A; }
+  .lp-grocery ul { list-style: none; padding: 0; margin: 0; }
+  .lp-grocery li {
+    font-family: 'Nunito', sans-serif;
+    font-size: 12px;
+    line-height: 1.9;
+    color: #2D312E;
+    padding-left: 14px;
+    position: relative;
+  }
+  .lp-grocery li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 9px;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: #4A7C59;
+  }
+  .lp-grocery .buy li::before { background: #8A7E9A; }
+
+  /* ===== FAV MENU SECTION ===== */
+  .lp-fav {
+    margin: 0 40px 28px;
+    background: #FDFBF7;
+    border: 1px solid rgba(74,124,89,0.15);
+    border-radius: 12px;
+    padding: 20px 24px;
+  }
+  .lp-fav h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px; font-weight: 600;
+    color: #4A7C59; margin: 0 0 12px;
+  }
+  .lp-fav .fav-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 6px 16px;
+    margin-bottom: 14px;
+  }
+  .lp-fav .fav-item {
+    font-family: 'Nunito', sans-serif;
+    font-size: 12px;
+    color: #2D312E;
+    padding: 4px 0;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .lp-fav .fav-item .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #FFD166;
+    flex-shrink: 0;
+  }
+  .lp-fav .add-row {
+    display: flex; gap: 8px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(74,124,89,0.12);
+  }
+  .lp-fav .add-row input {
+    flex: 1;
+    font-family: 'Nunito', sans-serif;
+    font-size: 13px;
+    padding: 8px 12px;
+    border: 1px solid rgba(74,124,89,0.3);
+    border-radius: 8px;
+    background: #FDFBF7;
+    color: #2D312E;
+    outline: none;
+  }
+  .lp-fav .add-row input::placeholder { color: #8A7E9A; }
+  .lp-fav .add-row input:focus { border-color: #4A7C59; box-shadow: 0 0 0 2px rgba(74,124,89,0.12); }
+  .lp-fav .add-row button {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px; font-weight: 500;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 8px;
+    background: #4A7C59;
+    color: #FDFBF7;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .lp-fav .add-row button:hover { background: #3D6B4B; }
+
+  /* ===== FOOTER ===== */
+  .lp-footer {
+    padding: 24px 40px;
+    text-align: center;
+    border-top: 1px solid rgba(74,124,89,0.12);
+  }
+  .lp-footer p {
+    font-family: 'Nunito', sans-serif;
+    font-size: 11px;
+    color: #8A7E9A;
+    margin: 0;
+  }
+
+  /* ===== LEGEND ===== */
+  .lp-legend {
+    display: flex; gap: 16px;
+    margin: 0 40px 24px;
+    align-items: center;
+  }
+  .lp-legend .lg-item {
+    display: flex; align-items: center; gap: 6px;
+    font-family: 'Nunito', sans-serif; font-size: 11px;
+    color: #2D312E;
+  }
+  .lp-legend .lg-sw {
+    width: 16px; height: 16px;
+    border-radius: 4px;
+    border: 1px solid rgba(74,124,89,0.2);
+  }
+</style>
+
+<h2 class="sr-only">Buddhist vegetarian weekly meal plan — Tropical Plant-Based landing page style</h2>
+
+<div class="lp-root">
+
+<div class="lp-hero">
+  <h1>Buddhist Vegetarian Family Meal Plan</h1>
+  <p class="tagline">Singapore &middot; Monday – Sunday &middot; Egg & dairy allowed &middot; No allium</p>
+  <div class="pills">
+    <span class="pill">Balanced for children</span>
+    <span class="pill">No garlic / onion / leek</span>
+    <span class="pill">Kids' Choice enabled</span>
+    <span class="pill">21 meals &middot; 7 days</span>
+  </div>
+</div>
+
+<div class="lp-stats">
+  <div class="stat"><div class="stat-num">7</div><div class="stat-label">Days</div></div>
+  <div class="stat"><div class="stat-num">21</div><div class="stat-label">Meals planned</div></div>
+  <div class="stat"><div class="stat-num">8</div><div class="stat-label">Kids' Choice slots</div></div>
+  <div class="stat"><div class="stat-num">29+</div><div class="stat-label">Favourite menu items</div></div>
+  <div class="stat"><div class="stat-num">~1,100</div><div class="stat-label">Avg kcal / day</div></div>
+</div>
+
+<div class="lp-legend">
+  <div class="lg-item"><div class="lg-sw" style="background:#FFD166;"></div> Kids' Choice</div>
+  <div class="lg-item"><div class="lg-sw" style="background:#FFF;"></div> Regular meal</div>
+  <div class="lg-item"><div class="lg-sw" style="background:#F3E8D6;"></div> Pantry section</div>
+</div>
+
+<div class="lp-kc">
+  <div class="kc-icon">KC</div>
+  <div class="kc-body">
+    <h3>Kids' Choice weekly tracker</h3>
+    <p style="font-family:'Nunito',sans-serif;font-size:11px;color:#6B6F6D;margin:0 0 10px;">Max 5 slots per child per week</p>
+    <div class="kc-bars" id="kc-tracker"></div>
+  </div>
+</div>
+
+<div class="lp-sec-head">
+  <h2>Weekly meal schedule</h2>
+  <p>Each day features three balanced meals. Mango Yellow cards are Kids' Choice picks.</p>
+</div>
+
+<div id="day-cards"></div>
+
+<div class="lp-sec-head">
+  <h2>Grocery shopping list</h2>
+  <p>Soft Ginger section = pantry staples to check. White section = fresh items to buy.</p>
+</div>
+<div class="lp-grocery">
+  <div class="gcol pantry">
+    <h3><div class="gicon">P</div> Pantry staples (check stock)</h3>
+    <ul id="pantry-list"></ul>
+  </div>
+  <div class="gcol buy">
+    <h3><div class="gicon">F</div> Fresh / to buy</h3>
+    <ul id="buy-list"></ul>
+  </div>
+</div>
+
+<div class="lp-sec-head">
+  <h2>Kids' favourite menu</h2>
+  <p>Kids can add new meals — the list grows dynamically.</p>
+</div>
+<div class="lp-fav">
+  <div class="fav-grid" id="fav-menu"></div>
+  <div class="add-row">
+    <input id="new-fav" type="text" placeholder="Add a new favourite meal…" />
+    <button onclick="addFavourite()">Add to menu</button>
+  </div>
+</div>
+
+<div class="lp-footer">
+  <p>Tropical Plant-Based design system &middot; Poppins + Nunito &middot; Coconut Cream / Pandan Green / Mango Yellow / Soft Ginger / Taro Purple</p>
+</div>
+
+</div>
+
+<script>
+var days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+var mealSlots = ["Breakfast","Lunch","Dinner"];
+var slotIcons = { Breakfast: "B", Lunch: "L", Dinner: "D" };
+
+var favMenu = [
+  "Yellow curry (vegetarian, coconut milk base)","Tomato scrambled egg","Egg puff (crispy pastry with egg filling)","Egg fried rice (no onion/garlic)","Mushroom pasta with cream sauce","Vegetable sushi rolls","Tofu and broccoli stir-fry (ginger, soy sauce)","Roti prata with egg","Kaya toast with soft-boiled eggs","Nasi lemak (vegetarian, no ikan bilis)","Mee goreng (vegetarian, no allium)","Laksa (vegetarian, coconut milk base, no allium)","Vegetable curry with coconut milk","Steamed buns (bao) with mushroom filling","Chee cheong fun (rice rolls with sweet sauce)","Yong tau foo (vegetarian fillings, no allium)","Chawanmushi (Japanese steamed egg custard)","Bibimbap (vegetarian, egg topping)","Kimchi fried rice (vegetarian, no garlic/onion)","Thai basil tofu (no allium)","Gado-gado (Indonesian salad with peanut sauce)","Tempeh satay skewers","Vegetarian dumplings (egg + veg filling)","Fried bee hoon (vegetarian style)","Spinach tofu soup (no allium)","Pumpkin porridge","Sweet potato balls","Herbal soup (no allium, with Chinese herbs)"
+];
+
+var plan = {
+  Monday: {
+    Breakfast: ["Pumpkin porridge with soy milk",280,"9g","52g","4g","Vit A, Vit C, Potassium",false,null],
+    Lunch: ["Brown rice with tofu & broccoli stir-fry (ginger, soy)",420,"18g","58g","12g","Calcium, Vit C, Iron",false,null],
+    Dinner: ["Vegetable sushi rolls",350,"12g","62g","8g","Iodine, Vit B12, Folate",true,"Elder"]
+  },
+  Tuesday: {
+    Breakfast: ["Kaya toast with soft-boiled eggs",320,"14g","38g","10g","Vit B12, Biotin, Selenium",true,"Younger"],
+    Lunch: ["Fried bee hoon with mixed vegetables",410,"11g","68g","9g","Vit A, Vit C, Fibre",false,null],
+    Dinner: ["Spinach tofu soup with brown rice",380,"16g","50g","11g","Iron, Calcium, Vit K",false,null]
+  },
+  Wednesday: {
+    Breakfast: ["Overnight oats with banana, raisins & honey",310,"8g","58g","6g","Vit B6, Potassium, Fibre",false,null],
+    Lunch: ["Tempeh satay skewers with cucumber rice",440,"22g","54g","14g","Protein, Vit B12, Manganese",true,"Elder"],
+    Dinner: ["Vegetarian curry with coconut milk + brown rice",480,"14g","72g","16g","Vit C, Curcumin, Potassium",false,null]
+  },
+  Thursday: {
+    Breakfast: ["Roti prata with egg",350,"12g","48g","13g","Vit B12, Protein, Calcium",true,"Younger"],
+    Lunch: ["Bibimbap (vegetarian, egg topping)",450,"15g","66g","12g","Vit B-complex, Iron, Fibre",false,null],
+    Dinner: ["Herbal soup (Chinese herbs) with steamed rice",390,"18g","55g","10g","Antioxidants, Iron, Zinc",false,null]
+  },
+  Friday: {
+    Breakfast: ["Pancakes with maple syrup & fresh fruit",330,"8g","60g","7g","Vit C, Manganese, Fibre",false,null],
+    Lunch: ["Yong tau foo (vegetarian fillings, no allium)",420,"20g","50g","13g","Calcium, Protein, Vit B12",true,"Elder"],
+    Dinner: ["Yellow curry (coconut milk, potatoes, tofu) + rice",500,"16g","74g","15g","Curcumin, Vit C, Potassium",true,"Younger"]
+  },
+  Saturday: {
+    Breakfast: ["Chee cheong fun with sweet sauce",380,"9g","72g","6g","Carbohydrates, Energy",true,"Elder"],
+    Lunch: ["Laksa (vegetarian, coconut milk, no allium)",490,"18g","65g","18g","Calcium, Vit C, Protein",false,null],
+    Dinner: ["Vegetarian dumplings (egg + veg) with ginger dip",420,"16g","55g","14g","Vit C, Protein, Iron",false,null]
+  },
+  Sunday: {
+    Breakfast: ["Chawanmushi with mushroom & corn",250,"14g","22g","12g","Vit B12, Biotin, Selenium",true,"Younger"],
+    Lunch: ["Gado-gado with peanut sauce + brown rice",460,"18g","62g","16g","Vit C, Folate, Protein",false,null],
+    Dinner: ["Nasi lemak (vegetarian, no ikan bilis)",510,"15g","78g","17g","Vit C, Iron, Potassium",true,"Elder"]
+  }
+};
+
+var pantryItems = [
+  "Brown rice (2kg bag)","White jasmine rice (2kg bag)","Soy sauce (light & dark)","Coconut milk (3 cans, 400ml)","Coconut cream (2 cans)","Vegetable oil / canola oil","Ginger (thumb piece)","Curry powder (Buddhist blend, no allium)","Turmeric powder","Cornstarch / tapioca starch","Brown sugar / palm sugar","Kaya (jar)","Maple syrup","Honey","Dried noodles (bee hoon / vermicelli, 1 pack)","Rice noodles for laksa (dried)","Dumpling wrappers (1 pack, frozen)","Sushi rice (1kg)","Nori sheets","Rice vinegar","Sesame oil","Peanut butter (natural, no additives)","Tempeh (2 blocks, frozen)","Chinese herbal soup mix (pack)","Oats (rolled, 1kg)","Raisins / dried fruit","Sweet chilli sauce (no garlic)","Satay sauce base (peanut)","Kimchi (vegetarian, no garlic/onion)","Flour (all-purpose, 1kg)","Baking powder","Salt & white pepper"
+];
+
+var buyItems = [
+  "Tofu (firm, 4 blocks)","Tofu (soft/silken, 2 blocks)","Eggs (tray of 30)","Broccoli (2 heads)","Spinach (2 bunches)","Bok choy / xiao bai cai (500g)","Cabbage (1 medium head)","Carrots (1kg)","Tomatoes (500g)","Cucumber (3)","Pumpkin (half, ~1kg)","Sweet potatoes (500g)","Potatoes (1kg)","Mushrooms (shiitake, 200g)","Mushrooms (button, 200g)","Mushrooms (dried shiitake, 1 pack)","Corn (3 cobs)","Bell peppers — red & green (4)","Bean sprouts (200g)","Long beans / green beans (300g)","Bananas (1 bunch)","Apples (6)","Oranges (6)","Tempeh (2 blocks, fresh section)","Roti prata (frozen, 1 pack)","Bao / steamed buns (frozen, 1 pack)","Chee cheong fun (fresh, 1 pack)","Sushi roll fillings: cucumber, carrot","Vegetarian dumpling filling veg","Bean curd puffs / tau pok (200g)","Lady's fingers / okra (200g)","Pumpkin leaves / kangkong (optional)","Edamame (frozen, 1 pack)","Fresh milk / soy milk (2L)","Cheese (slices, 1 pack — for kids)","Yoghurt (natural, 1 tub)","Ginger root (1 large piece)","Lemon / lime (3)","Coriander (1 bunch)","Thai basil (1 pack)"
+];
+
+function renderDayCards() {
+  var html = '';
+  days.forEach(function(day) {
+    var tCal=0, tPro=0, tCarb=0, tFat=0;
+    mealSlots.forEach(function(slot) {
+      var m = plan[day][slot];
+      tCal += m[1]; tPro += parseInt(m[2]); tCarb += parseInt(m[3]); tFat += parseInt(m[4]);
+    });
+
+    html += '<div class="lp-day">';
+    html += '<div class="lp-day-head">';
+    html += '<div class="day-name">' + day + '</div>';
+    html += '<div class="day-total"><b>' + tCal + ' kcal</b> | Protein ' + tPro + 'g &middot; Carbs ' + tCarb + 'g &middot; Fat ' + tFat + 'g</div>';
+    html += '</div>';
+    html += '<div class="lp-meals">';
+
+    mealSlots.forEach(function(slot) {
+      var m = plan[day][slot];
+      var name=m[0], cal=m[1], pro=m[2], carb=m[3], fat=m[4], vits=m[5], isKC=m[6], child=m[7];
+      var cls = "lp-meal" + (isKC ? " kc" : "");
+      var badge = isKC ? '<div class="kc-badge"><div class="badge-inner">Kids\u2019 Choice \u00b7 ' + child + '</div></div>' : '';
+
+      html += '<div class="' + cls + '">';
+      html += '<div class="meal-tag">';
+      html += '<div class="slot-icon">' + slotIcons[slot] + '</div>';
+      html += '<div class="slot-name">' + slot + '</div>';
+      html += '</div>';
+      html += '<div class="meal-body">';
+      html += '<div class="meal-name">' + name + '</div>';
+      html += '<div class="nutri"><span>' + cal + ' kcal</span><span>P ' + pro + '</span><span>C ' + carb + '</span><span>F ' + fat + '</span></div>';
+      html += '<div class="vits">' + vits + '</div>';
+      html += '</div>';
+      html += badge;
+      html += '</div>';
+    });
+
+    html += '</div>';
+    html += '</div>';
+  });
+  document.getElementById('day-cards').innerHTML = html;
+}
+
+function renderTracker() {
+  var elderCount=0, youngerCount=0;
+  days.forEach(function(day) {
+    mealSlots.forEach(function(slot) {
+      var m = plan[day][slot];
+      if (m[6]) {
+        if (m[7] === "Elder") elderCount++;
+        else youngerCount++;
+      }
+    });
+  });
+  document.getElementById('kc-tracker').innerHTML =
+    '<div class="kc-bar"><div class="bar-info"><span>Elder</span><span>' + elderCount + ' / 5</span></div><div class="bar-track"><div class="bar-fill" style="width:' + (elderCount/5*100) + '%;"></div></div></div>' +
+    '<div class="kc-bar"><div class="bar-info"><span>Younger</span><span>' + youngerCount + ' / 5</span></div><div class="bar-track"><div class="bar-fill" style="width:' + (youngerCount/5*100) + '%;"></div></div></div>';
+}
+
+function renderFav() {
+  document.getElementById('fav-menu').innerHTML = favMenu.map(function(m,i) {
+    return '<div class="fav-item"><div class="dot"></div>' + (i+1) + '. ' + m + '</div>';
+  }).join('');
+}
+
+function addFavourite() {
+  var input = document.getElementById('new-fav');
+  var val = input.value.trim();
+  if (val) {
+    favMenu.push(val);
+    input.value = "";
+    renderFav();
+  }
+}
+
+function renderGrocery() {
+  document.getElementById('pantry-list').innerHTML = pantryItems.map(function(i) {
+    return '<li>' + i + '</li>';
+  }).join('');
+  document.getElementById('buy-list').innerHTML = buyItems.map(function(i) {
+    return '<li>' + i + '</li>';
+  }).join('');
+}
+
+renderDayCards();
+renderTracker();
+renderFav();
+renderGrocery();
+</script>
